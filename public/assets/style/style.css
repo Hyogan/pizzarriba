@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: blue;
+}
+
+
+
+section.home {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5%;
+    background: linear-gradient(rgba(0, 0, 0, 0.492),rgba(0, 0, 0, 0.644)),url("../images/pizza1-tomate.jpg") center fixed;
+
+}
+
+section.home img {
+    width: 400px;
+}
+
+.products-list ul.menu{
+    display: flex;
+    width: 100%;
+    background: orange;
+    justify-content: center;
+    align-items: center;
+}
+.products-list ul.menu li{
+    display: flex;
+    padding: 10px 25px ;
+    background: rgba(255, 136, 0, 0.938);
+    transition: .6s;
+    margin: 0 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    border-inline: 2px solid;
+}
+.products-list ul li:hover{
+    background: rgb(255, 102, 0);
+}
+
+
+.product {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    /* background: linear-gradient( rgba(0, 0, 0, 0.452), rgba(0, 0, 0, 0.562)),url("../images/pizza1-creme.jpg"); */
+    gap: 25px;
+}
+.product-infos {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+
+.product-infos .name {
+    color: orange;
+    font-size: 50px;
+}
+.product-infos .available {
+    color: white;
+    font-size: 40px;
+}
+.product-infos .available .no {
+    color: red;
+}
+.product-infos .price {
+    color: yellow;
+    font-weight: bold;
+}
+.product-infos .price span {
+    font-size: 35px;
+}
+.product-infos .list {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+.product-infos .list-of-lists {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 5px;
+    padding: 10px;
+}
+.product-infos .list span {
+    font-size: 17px;
+    border-bottom: 2px solid white;
+    width: fit-content;
+    margin: 6px;
+}
+
+.product-infos .list li{
+    list-style-type: disc !important;
+}
+
+
+.product img {
+    width: calc(250px + 25vw);
+    height: calc(250px + 25vw);
+    border-radius: 50%;
+    border: orange solid 2px;
+}
+
+
+
+.product button {
+    border: none;
+    background: orange;
+    cursor : pointer;
+    display: flex;
+    padding: 20px 25px;
+    font-size: 18px;
+    transition: .7s;
+}
+
+.product button:hover {
+    background: orangered;
+    color: white;
+}
+
+
+@media screen and (max-width : 885px) {
+    .product {
+        flex-direction: column;
+        height: fit-content;
+        padding: 50px 2%;
+    }
+}
