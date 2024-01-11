@@ -1,5 +1,5 @@
 <template>
-    <navbar :products="products"></navbar>
+    <navbar></navbar>
     <products :products="products"></products>
 </template>
 
@@ -71,7 +71,7 @@
         ]
        }
     }
-  }
+}
 </script>
     
 <style>

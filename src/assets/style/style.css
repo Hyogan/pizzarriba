@@ -6,34 +6,40 @@
     scroll-behavior: smooth;
 }
 
-header {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background: blue;
-}
-
-header img{
-    width: 45px;
-}
-
-
-
+section.about,
 section.home {
     display: flex;
     width: 100vw;
     height: 100vh;
     justify-content: space-around;
-    align-items: center;
-    padding: 5%;
-    background: linear-gradient(rgba(0, 0, 0, 0.492),rgba(0, 0, 0, 0.644)),url("../images/pizza1-tomate.jpg") center fixed;
-
+    align-items:center;
+    background-repeat: no-repeat;
+}
+.full-content {
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.37),rgba(0, 0, 0, 0.716) 50%), url("../images/pages/pizza-3.jpg") fixed;
 }
 
 section.home img {
     width: 400px;
+}
+section.team {
+    background: white;
+}
+
+@media screen and (max-width : 470px) {
+    section.home img {
+        width: calc(150px + 50vw);
+    } 
+}
+@media screen and (max-width : 790px) {
+    section.home  {
+        flex-direction: column;
+        justify-content: center;
+    } 
+
+    section.home h1 {
+        text-align: center;
+    }
 }
 
 .products-list ul.menu{
@@ -42,6 +48,7 @@ section.home img {
     background: orange;
     justify-content: center;
     align-items: center;
+    overflow-x: auto;
 }
 .products-list ul.menu li{
     display: flex;

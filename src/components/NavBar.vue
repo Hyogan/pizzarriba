@@ -1,44 +1,42 @@
 <template>
-    <header class="div">
-            <p>
-                <img src="../assets/images/pages/speedy_gonzales3.png" />
-                <nav>
-                    <a href="/">Home</a> 
-                    <a href="#/about">About</a> 
-                    <a href="#/non-existent-path">Broken Link</a>
-                </nav>
-                
-            </p>
-            <component :is="currentView" />
-    </header>
+    <div class='full-content'>
+        <header class="header">
+                    <p>
+                        <img src="../assets/images/pages/pizzariba-logo.jpg" />
+                        <h1>PIZZARIBA <span>.</span></h1>
+                    </p>
+                    <nav>
+                    <router-link to="/">Home</router-link>
+                    <router-link to="/about">About us</router-link>
+                    <router-link to="/products">Products</router-link>
+                    <router-link to="/team">Team</router-link>
+                    </nav> 
+        </header>
+        <router-view></router-view>
+    </div>
 </template>
 <script>
-    import Home from './Pages/Home.vue';
-    import About from './Pages/About.vue';
-    import NotFound from './Pages/NotFound.vue';
+    // import NotFound from './Pages/NotFound.vue';
 
-    const routes = {
-        '/': Home,
-        '/about': About
-    };
+    
 
     export default {
-        props : ["products"],
-        data() {
-            return {
-            currentPath: window.location.hash
-            }
-        },
-        computed: {
-            currentView() {
-            return routes[this.currentPath.slice(1) || '/'] || NotFound
-            }
-        },
-        mounted() {
-            window.addEventListener('hashchange', () => {
-                this.currentPath = window.location.hash
-            });
-        }
+        // props : ["products"],
+        // data() {
+        //     return {
+        //     currentPath: window.location.hash
+        //     }
+        // },
+        // computed: {
+        //     currentView() {
+        //     return routes[this.currentPath.slice(1) || '/'] || NotFound
+        //     }
+        // },
+        // mounted() {
+        //     window.addEventListener('hashchange', () => {
+        //         this.currentPath = window.location.hash
+        //     });
+        // }
     }
 
 </script>
@@ -47,17 +45,37 @@
 
 <style scoped>
     header {
-        background: blue;
-        justify-content: center;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
         align-items: center;
-        position: sticky;
+        /* background: url("../assets/images/pizza1-tomate.jpg") top; */
+        padding: 15px 15px;
+        top: 0;
     }
     header a {
         font-size: 22px;
         color: white;
         text-decoration: none;
-        padding: 2px 5px;
-        margin: 10px 5px;
-        
+        padding: 12px 15px;
+        margin: 10px 0;
+        transition: .7s;
+        font-weight: bold;
+    }
+    header a:hover{
+        background: white;
+        color: orange;
+        font-weight: bold;
+    }
+    header p {
+        color : white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+    header img{
+        width: 180px;
+        height: 100px;
     }
 </style>
