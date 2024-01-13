@@ -5,12 +5,15 @@
                         <img src="../assets/images/pages/pizzariba-logo.jpg" />
                         <h1>PIZZARIBA <span>.</span></h1>
                     </p>
-                    <nav>
+                <nav>
                     <router-link to="/">Home</router-link>
                     <router-link to="/about">About us</router-link>
                     <router-link to="/products">Products</router-link>
                     <router-link to="/team">Team</router-link>
-                    </nav> 
+                    <router-link to="/card">Card</router-link>
+                    <router-link to="/advices">Advices</router-link>
+                        
+                </nav> 
         </header>
         <router-view></router-view>
     </div>
@@ -78,4 +81,35 @@
         width: 180px;
         height: 100px;
     }
+
+   @media screen and (max-width : 1008px) {
+        /* nav {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            z-index: 99999;
+            background: #000;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center ;
+        } */
+
+        header {
+            display: flex;
+            flex-wrap: wrap;
+
+            position: absolute;
+            top: 0;
+            z-index: 99999;
+            background: #00000059;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center ;
+            /* margin-bottom: 7; */
+        }
+    
+   }
 </style>

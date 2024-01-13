@@ -1,5 +1,5 @@
 <template>
-    <section class="home">
+    <section class="home" id="home">
         <img src="../../assets/images/pages/speedy_gonzales3.png" alt="">
         <div class="infos">
             <h1>Bienvenue à la <span>pizzarriba</span></h1>
@@ -14,10 +14,15 @@
 <script>
     export default {
         // name : "Home"
+        mounted() {
+           
+            // this.style.opacity = 1;
+                }
     }
 </script>
 
 <style scoped>
+
     h1 {
         font-size: calc(50px + 2vw);
         color: white;

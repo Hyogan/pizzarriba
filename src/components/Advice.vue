@@ -1,26 +1,23 @@
 <template>
     <div 
-        class="employee-infos" 
-        :class="{'reverse' : teamMember.id == 2}"
-        >
-        <img :src=teamMember.pic alt="">
-        <div class="teamMemberInfos">
-            <h2 class="name">🍕{{teamMember.name }}</h2>
-            <p class="post">🍕{{ teamMember.post }}</p>
-            <p class="description">{{teamMember.description }}</p>
+        class="advice-infos">
+        <img :src=advice.pic alt="">
+        <div class="advices">
+            <h2 class="name">🍕{{advice.name }}</h2>
+            <p class="job">🍕{{ advice.job }}</p>
+            <p class="message">"{{advice.message }}"</p>
         </div>
     </div>
 </template>
 
-
 <script>
     export default {
-        props : ["teamMember"]
+        props : ['advice']
     }
 </script>
 
 <style>
-    .employee-infos{
+    .advice-infos{
         display: flex;
         min-width: 240px;
         justify-content: center;
@@ -32,7 +29,7 @@
         background: white;
         flex-direction: column;
     }
-    .employee-infos:hover {
+    .advice-infos:hover {
         transition: 1s;
         box-shadow: rgb(151, 115, 68) 0px 4px 12px;
         box-shadow: rgb(151, 115, 68) 0px 50px 120px -20px, rgba(204, 145, 69, 0.7) 0px 30px 70px -30px;
@@ -42,7 +39,7 @@
     }
 
 
-    .employee-infos .name {
+    .advice-infos .name {
         font-size: 30px;
         font-weight: 900;
         color: rgb(151, 115, 68);
@@ -50,25 +47,75 @@
         font-weight: bolder;
         font-family: 'Courier New', Courier, monospace;
     }
-    .employee-infos .post {
+    .advice-infos .job {
         font-size: 20px;
         font-weight: bold;
         color: rgb(43, 34, 22);
         font-family: 'Courier New', Courier, monospace;
     }
-    .employee-infos .description {
+    .advice-infos .message {
         font-family: 'Courier New', Courier, monospace;
         font-weight: bold;
+        text-align: center;
     }
-    .employee-infos img {
+    .advice-infos img {
         width: 200px;
+        height: 200px;
         filter : drop-shadow(10px,10px,50px rgb(0, 67, 143));
+        border-radius: 50%;
+        border: 2px solid orange;
     }
     @media screen and (max-width : 580px){
-    .employee-infos{
+    .advice-infos{
         width: 250px;
     }
     }     
 
 
+
+/* 
+.section-content{
+    width: calc(100% - 45px);
+    background: url("../../public/images/app/phone_logo.png");
+} */
+
+
+
+
+
 </style>
+
+
+
+/* 
+
+const btn = document.getElementById("menu-btn");
+const nav = document.getElementById("menu");
+const sidebarbtn = document.querySelector("#menu-btn-side");
+const sidebar = document.querySelector(".sidebar1");
+
+
+
+
+function toggleMenu(){
+    btn.classList.toggle("open");
+    nav.classList.toggle("flex");
+    nav.classList.toggle("hidden");
+}
+
+function toggleSidebar(){
+    sidebar.classList.toggle("-translate-x-full");
+    sidebar.classList.toggle("translate-x-0");
+    document.querySelector("#dark_overlay").classList.toggle('hidden');
+    document.querySelector("#dark_overlay").classList.toggle('block');
+}
+
+
+
+sidebarbtn.addEventListener("click",()=>{
+    toggleSidebar();
+})
+
+btn.addEventListener("click", ()=>{
+    toggleMenu();
+}); */

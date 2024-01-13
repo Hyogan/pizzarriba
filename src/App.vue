@@ -1,12 +1,16 @@
 <template>
     <navbar></navbar>
+
     <products :products="products"></products>
+
+    <footer_n></footer_n>
 </template>
 
 <script>
-  import NavBar from "./components/NavBar.vue";
-  import Product from "./components/Product.vue";
-  import Products from "./components/Products.vue";
+  import NavBar from "@/components/NavBar.vue";
+  import Product from "@/components/Product.vue";
+  import Footer from  "@/components/Pages/Footer.vue"
+  import Products from "@/components/Products.vue";
     import creme from "./assets/images/pizza1-creme.jpg";
     import tomate from "./assets/images/pizza1-tomate.jpg";
     import premisses from "./assets/images/s_prem.jpeg";
@@ -14,12 +18,22 @@
 
 //   import img1 from "../src/assets/images/"
 
+
   export default {
-    name: 'App',
+name: 'App',
     components: {
        'product' : Product,
         'products' : Products,
         'navbar' : NavBar,
+        'footer_n' : Footer,
+    },
+    mounted() {
+        localStorage.setItem("products_card",[]);
+        const products = localStorage.getItem("products_card");
+        if(products == null){
+                 localStorage.setItem("products_card",[]);
+        }
+           
     },
     data() {
        return {
@@ -40,7 +54,7 @@
                 name : "Pizza",
                 type : "Tomate",
                 image : tomate,
-                isAvailable : true,
+                isAvailable : false,
                 price : 1500,
                 ingredients : ["peperonis","meladonia","vox"],
                 sauces : ["vina","pinia"],
@@ -73,7 +87,7 @@
     }
 }
 </script>
-    
+
 <style>
     #app {
         position: relative;

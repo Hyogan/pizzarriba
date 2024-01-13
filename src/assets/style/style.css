@@ -6,6 +6,8 @@
     scroll-behavior: smooth;
 }
 
+
+
 section.about,
 section.home {
     display: flex;
@@ -17,15 +19,24 @@ section.home {
 }
 .full-content {
     background: radial-gradient(circle at center, rgba(0, 0, 0, 0.37),rgba(0, 0, 0, 0.716) 50%), url("../images/pages/pizza-3.jpg") fixed;
+    position : relative;
 }
 
 section.home img {
     width: 400px;
 }
-section.team {
-    background: white;
-}
 
+@media screen and (max-width : 1008px) {
+    section.about {
+        /* padding-top: calc(50vw + 30px); */
+        /* padding-top: calc(100vw ); */
+        /* padding-top: calc(55vh); */
+        /* padding-top: (100vw - 100px); */
+        /* height: fit-content; */
+        min-height: 1000px;
+        padding: 50px 10px;
+    }
+}
 @media screen and (max-width : 470px) {
     section.home img {
         width: calc(150px + 50vw);
@@ -39,6 +50,7 @@ section.team {
 
     section.home h1 {
         text-align: center;
+    
     }
 }
 
