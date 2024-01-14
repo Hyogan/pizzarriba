@@ -19,7 +19,7 @@ section.home {
 }
 .full-content {
     background: radial-gradient(circle at center, rgba(0, 0, 0, 0.37),rgba(0, 0, 0, 0.716) 50%), url("../images/pages/pizza-3.jpg") fixed;
-    position : relative;
+    /* position : relative; */
 }
 
 section.home img {
@@ -27,14 +27,14 @@ section.home img {
 }
 
 @media screen and (max-width : 1008px) {
-    section.about {
+    section.about,section.home {
         /* padding-top: calc(50vw + 30px); */
         /* padding-top: calc(100vw ); */
         /* padding-top: calc(55vh); */
         /* padding-top: (100vw - 100px); */
         /* height: fit-content; */
-        min-height: 1000px;
-        padding: 50px 10px;
+        min-height: 850px;
+        padding: 40px 10px;
     }
 }
 @media screen and (max-width : 470px) {
@@ -56,24 +56,33 @@ section.home img {
 
 .products-list ul.menu{
     display: flex;
-    width: 100%;
+    width: 100vw;
     background: orange;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     overflow-x: auto;
+    /* overflow: scroll; */
 }
 .products-list ul.menu li{
     display: flex;
+    /* width: ; */
     padding: 10px 25px ;
     background: rgba(255, 136, 0, 0.938);
     transition: .6s;
-    margin: 0 5px;
+    /* margin: 0 5px; */
     color: white;
     cursor: pointer;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     border-inline: 2px solid;
 }
+@media screen and (max-width : 500px){
+   .products-list ul.menu li {
+    padding: 5px 5px ;
+   }
+}
+
+
 .products-list ul li:hover{
     background: rgb(255, 102, 0);
 }
@@ -139,8 +148,8 @@ section.home img {
 
 
 .product img {
-    width: calc(250px + 25vw);
-    height: calc(250px + 25vw);
+    width: calc(245px + 25vw);
+    height: calc(245px + 25vw);
     border-radius: 50%;
     border: orange solid 2px;
 }

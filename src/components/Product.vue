@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="buttons" >
-                    <button @click="addToCart(product.id)">Ajouter au panier</button>
+                    <button @click="addToCart(product.id)"> <i class="fa-solid fa-cart-shopping"></i>Ajouter au panier</button>
                 </div>
             </div>
             <modal :showModal="showModal" @closeModal="closeModal" ></modal>
