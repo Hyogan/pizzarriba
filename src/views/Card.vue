@@ -19,9 +19,25 @@
                 </ul>
             </div>
             <div class="infos2">
-                <p class="prix">{{card_el.price}} Fcfa</p>
+                <p v-if="card_el.isPromote" class="prix prices">
+                    <span class="old-price">{{card_el.price}}</span> <span>{{card_el.price - card_el.price * card_el.promotion}}Fcfa</span> <span class="red">PROMOTION </span>
+                </p>
+                <p v-else class="prix">
+                    <span>{{card_el.price}} </span>Fcfa
+                </p>
+                <!-- <p class="prix">{{card_el.price}} Fcfa</p> -->
                 <button class="add">Ajouter</button>
                 <button class="remove">Retirer</button>
+            </div>
+        </div>
+        <div class="card-el facture">
+            <h2 class="title">FACTURE DE LIVRAISON DE PIZZA</h2>
+            <div>
+                <p class="fact-item"> Nombre de produits : <span> {{ this.numberOfProducts }} </span></p>
+                <p class="fact-item"> Quantité de produits : <span> {{ this.quantityOfProducts }} </span></p>
+                <p class="fact-item"> Prix : <span>{{ this.productPrice }} </span>  FCFA</p>
+                <p class="fact-item"> Prix promotionel : <span> {{ this.productPricesPromoted }}</span> FCFA</p>
+                <button>Commander</button>
             </div>
         </div>
     </section>
@@ -48,7 +64,10 @@
                         price : 1000,
                         ingredients : ["peperonis","meladonia","vox"],
                         sauces : ["vina","pinia"],
-                        values  : ["good","good","Heart"]
+                        values  : ["good","good","Heart"],
+                        isPromote : true,
+                        promotion : 0.2
+
                     },  
                     {
                         id : 2,
@@ -59,7 +78,9 @@
                         price : 1500,
                         ingredients : ["peperonis","meladonia","vox"],
                         sauces : ["vina","pinia"],
-                        values  : ["good","good","Heart"]
+                        values  : ["good","good","Heart"],
+                        isPromote : true,
+                        promotion : 0.5
                     },
                     {
                         id : 3,
@@ -70,7 +91,9 @@
                         price : 2500,
                         ingredients : ["peperonis","meladonia","vox"],
                         sauces : ["vina","pinia"],
-                        values  : ["good","good","Heart"]
+                        values  : ["good","good","Heart"],
+                        isPromote : false,
+                        promotion : 0.2
                     },
                     {
                         id : 4,
@@ -81,31 +104,48 @@
                         price : 3500,
                         ingredients : ["peperonis","meladonia","vox"],
                         sauces : ["vina","pinia"],
-                        values  : ["good","good","Heart"]
+                        values  : ["good","good","Heart"],
+                        isPromote : false,
+                        promotion : 0.2,
                     }
                 ],
-                final_product_list : []
+                final_product_list : [],
+                numberOfProducts : 0,
+                productPrice : 0,
+                productPricesPromoted : 0,
+                quantityOfProducts : 0
             }
         },
         mounted() {
             // const products_els = JSON.parse(localStorage.getItem("products_card")  || []);
             const products_els = JSON.parse(localStorage.getItem("products_card") || "[]");
-            console.log(products_els);
+            // console.log(products_els);
 
             const final_product = [];
           
 
             this.products.forEach(p => {
                 for(const el of products_els){
-                    console.log(p.id + "--"+ el.id)
+                    // console.log(p.id + "--"+ el.id)
                     if(p.id == el.id){
+                        this.numberOfProducts++;
+                        this.productPrice += p.price;
+                        this.quantityOfProducts += el.quantity;
+                        if (p.isPromote) {
+                            this.productPricesPromoted += (p.price - p.price * p.promotion);
+                        }else {
+                            this.productPricesPromoted += p.price;
+                        }
+
                         this.final_product_list.push({
                             name : p.name,
                             type : p.type,
                             pic : p.image,
                             price : p.price,
                             values : p.values,
-                            quantity : el.quantity
+                            quantity : el.quantity,
+                            isPromote : p.isPromote,
+                            promotion : p.promotion
                         });
                         
                     } 
@@ -122,7 +162,7 @@
             //     });
             // }
             
-            console.log(this.final_product_list);
+            // console.log(this.final_product_list);
         },
     }
 </script>
@@ -255,4 +295,52 @@ ul li {
     }
 }
 
+.card-el .prices{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-el .prices .red {
+    color: red;
+}
+.card-el .prices span.old-price {
+    font-size: 30px; 
+    margin-right: 5px;
+    text-decoration: line-through;
+    color: rgb(174, 177, 0);
+}
+
+
+.card-el.facture {
+    font-family: 'Courier New', Courier, monospace;
+    flex-direction: column;
+}
+
+.fact-item {
+    margin: 4px 0 ;
+    font-weight: 600;
+}
+.fact-item span {
+    color: orange;
+    font-size: 35px;
+    font-weight: 900;
+}
+
+.card-el.facture button {
+    border: none;
+    background: none;
+    padding: 10px 15px ;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: .7s;
+    font: bold;
+    font-size: 19px;
+    color: white;
+    background: orange;
+    transition : 1s;
+}
+
+.card-el.facture button:hover{
+    background : orangered;
+}
 </style>

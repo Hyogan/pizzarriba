@@ -38,51 +38,61 @@ name: 'App',
     data() {
        return {
         products : [
-            {
-                id : 1,
-                name : "Pizza",
-                type : "Creme",
-                image : creme,
-                // image: "../assets/images/pizza1-creme.jpg",
-                isAvailable : true,
-                price : 1000,
-                ingredients : ["peperonis","meladonia","vox"],
-                sauces : ["vina","pinia"],
-                values  : ["good","good","Heart"]
-            },  {
-                id : 2,
-                name : "Pizza",
-                type : "Tomate",
-                image : tomate,
-                isAvailable : false,
-                price : 1500,
-                ingredients : ["peperonis","meladonia","vox"],
-                sauces : ["vina","pinia"],
-                values  : ["good","good","Heart"]
-            },
-            {
-                id : 3,
-                name : "Pizza",
-                type : "Premisses",
-                image : premisses,
-                isAvailable : true,
-                price : 2500,
-                ingredients : ["peperonis","meladonia","vox"],
-                sauces : ["vina","pinia"],
-                values  : ["good","good","Heart"]
-            },
-            {
-                id : 4,
-                name : "Pizza",
-                type : "Pépéronis",
-                image : pepperonis,
-                isAvailable : true,
-                price : 3500,
-                ingredients : ["peperonis","meladonia","vox"],
-                sauces : ["vina","pinia"],
-                values  : ["good","good","Heart"]
-            },
-        ]
+                    {
+                        id : 1,
+                        name : "Pizza",
+                        type : "Creme",
+                        image : creme,
+                        // image: "../assets/images/pizza1-creme.jpg",
+                        isAvailable : true,
+                        price : 1000,
+                        ingredients : ["peperonis","meladonia","vox"],
+                        sauces : ["vina","pinia"],
+                        values  : ["good","good","Heart"],
+                        isPromote : true,
+                        promotion : 0.2
+
+                    },  
+                    {
+                        id : 2,
+                        name : "Pizza",
+                        type : "Tomate",
+                        image : tomate,
+                        isAvailable : false,
+                        price : 1500,
+                        ingredients : ["peperonis","meladonia","vox"],
+                        sauces : ["vina","pinia"],
+                        values  : ["good","good","Heart"],
+                        isPromote : true,
+                        promotion : 0.5
+                    },
+                    {
+                        id : 3,
+                        name : "Pizza",
+                        type : "Premisses",
+                        image : premisses,
+                        isAvailable : true,
+                        price : 2500,
+                        ingredients : ["peperonis","meladonia","vox"],
+                        sauces : ["vina","pinia"],
+                        values  : ["good","good","Heart"],
+                        isPromote : false,
+                        promotion : 0.2
+                    },
+                    {
+                        id : 4,
+                        name : "Pizza",
+                        type : "Pépéronis",
+                        image : pepperonis,
+                        isAvailable : true,
+                        price : 3500,
+                        ingredients : ["peperonis","meladonia","vox"],
+                        sauces : ["vina","pinia"],
+                        values  : ["good","good","Heart"],
+                        isPromote : false,
+                        promotion : 0.2
+                    }
+                ],
        }
     }
 }

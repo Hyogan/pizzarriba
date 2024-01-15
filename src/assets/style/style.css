@@ -121,8 +121,22 @@ section.home img {
     font-weight: bold;
 }
 .product-infos .price span {
-    font-size: 35px;
+    font-size: 37px;
 }
+
+.product-infos .price span.old-price {
+    font-size: 30px; 
+    margin-right: 5px;
+    text-decoration: line-through;
+    color: rgb(174, 177, 0);
+}
+.product-infos .price span.red {
+    color: red;
+    margin-left: 2px;
+}
+
+
+
 .product-infos .list {
     display: flex;
     justify-content: left;

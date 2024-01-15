@@ -13,7 +13,12 @@
                     <span v-if="product.isAvailable">Dispognible</span>
                     <span v-else class="no">Momentanément indispognible</span>    
                 </p>
-                <p class="price"><span>{{product.price}} </span>Fcfa</p>
+                <p v-if="product.isPromote" class="price">
+                    <span class="old-price">{{product.price}}</span> <span>{{product.price - product.price * product.promotion}}</span>Fcfa <span class="red">PROMOTION </span>
+                </p>
+                <p v-else class="price">
+                    <span>{{product.price}} </span>Fcfa
+                </p>
                 <div class="list-of-lists">
                     <div class="ingrédients list">
                         <span>ingrédients  : </span>
@@ -38,7 +43,7 @@
                     <button @click="addToCart(product.id)"> <i class="fa-solid fa-cart-shopping"></i>Ajouter au panier</button>
                 </div>
             </div>
-            <modal :showModal="showModal" @closeModal="closeModal" ></modal>
+            <modal :showModal="showModal" @closeModal="closeModal" :message="modalMessage" ></modal>
         </div>
     
 
@@ -56,7 +61,8 @@
         },
         data() {
             return {
-                showModal: false
+                showModal: false,
+                modalMessage : 'We are sorry, the product is currently unavailable',
             };
         },
         computed: {

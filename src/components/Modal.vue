@@ -1,7 +1,8 @@
 <template>
     <div class="modal" v-if="showModal">
         <div class="modal-content">
-        <p>We are sorry, the product is currently unavailable.</p>
+        <!-- <p>{{We are sorry, the product is currently unavailable.}}</p> -->
+        <p>{{message}}</p>
         <button @click="closeModal">Close</button>
         </div>
     </div>
@@ -11,7 +12,7 @@
 
     export default {
         /* Modal container */
-        props : ['showModal'],
+        props : ['showModal','message'],
         // data() {
         //     return {
         //         showModal
@@ -64,7 +65,7 @@
 
     /* Close button */
     .modal-content button {
-    background-color: #ddd;
+    background-color: orange;
     border: none;
     color: #333;
     padding: 8px 16px;
@@ -74,7 +75,7 @@
 
     /* Close button hover effect */
     .modal-content button:hover {
-    background-color: #ccc;
+    background-color: orangered;
     }
     
 </style>
